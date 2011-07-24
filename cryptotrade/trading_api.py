@@ -106,11 +106,11 @@ class TradeHill(Trader, public_api.TradeHillPublic):
     '''TradeHill trading API wrapper; tradehill.com''' 
     
     def __init__(self, username=None, password=None):
-        api_version = 'APIv1'
-        currency = 'USD' # other options available
-        url_base = 'https://api-test.tradehill.com/'
-        url_path = '/{0}/{1}/'.format(api_version, currency)
-        self.url_base = urljoin(url_base, url_path)
+        self.api_version = 'APIv1'
+        self.currency = 'USD' # other options available
+        self.url_base = 'https://api-test.tradehill.com/'
+        self.url_path = '/{0}/{1}/'.format(self.api_version, self.currency)
+        self.url_base = urljoin(self.url_base, self.url_path)
         self.auth = {
                 'name': username, 
                 'pass': username
