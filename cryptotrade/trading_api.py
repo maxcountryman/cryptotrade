@@ -2,6 +2,8 @@ import urllib
 import json
 import socket
 
+from urlparse import urljoin
+
 import public_api
 
 socket.setdefaulttimeout(5) # 5 seconds
