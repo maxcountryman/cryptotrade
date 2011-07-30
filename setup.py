@@ -1,6 +1,6 @@
 '''
 Cryptotrade
----
+-----------
 
 This module provides wrappers for the Bitcoin trading APIs available from 
 MtGox and Tradehill. In the future more trading platforms may be added.
@@ -10,7 +10,7 @@ from setuptools import setup
 
 setup(
     name='Cryptotrade',
-    version='0.1',
+    version='0.1.2',
     url='https://github.com/maxcountryman/cryptotrade',
     license='BSD',
     author='Max Countryman',

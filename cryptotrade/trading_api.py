@@ -113,7 +113,7 @@ class TradeHill(Trader, public_api.TradeHillPublic):
         if not currency in self.currencies:
             raise Exception('Currency value is invalid')
         self.currency = currency
-        self.url_base = 'https://api-test.tradehill.com/'
+        self.url_base = 'https://api.tradehill.com/'
         self.url_path = '/{0}/{1}/'.format(self.api_version, self.currency)
         self.url_base = urljoin(self.url_base, self.url_path)
         self.auth = {
