@@ -6,7 +6,7 @@ from urlparse import urljoin
 
 import public_api
 
-socket.setdefaulttimeout(5) # 5 seconds
+socket.setdefaulttimeout(15) # 15 seconds
 
 
 class Trader(object):
@@ -107,15 +107,18 @@ class MtGox(Trader, public_api.MtGoxPublic):
 class TradeHill(Trader, public_api.TradeHillPublic):
     '''TradeHill trading API wrapper; tradehill.com''' 
     
-    def __init__(self, username=None, password=None):
+    def __init__(self, username=None, password=None, currency='USD'):
         self.api_version = 'APIv1'
-        self.currency = 'USD' # other options available
+        self.currencies = ['USD', 'AUD', 'CAD', 'CLP', 'EUR', 'INR', 'LR']
+        if not currency in self.currencies:
+            raise Exception('Currency value is invalid')
+        self.currency = currency
         self.url_base = 'https://api-test.tradehill.com/'
         self.url_path = '/{0}/{1}/'.format(self.api_version, self.currency)
         self.url_base = urljoin(self.url_base, self.url_path)
         self.auth = {
                 'name': username, 
-                'pass': username
+                'pass': password
                 }
     
     def balance(self):
