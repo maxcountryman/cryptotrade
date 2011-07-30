@@ -33,12 +33,12 @@ class TradeHillTestCase(unittest.TestCase):
     
     def test_public_ticker(self):
         self.assertTrue(self.ticker)
-        self.assertTrue(self.ticker, dict)
+        self.assertTrue(isinstance(self.ticker, dict))
 
     def test_public_trades(self):
         self.assertTrue(self.trades)
-        self.assertTrue(self.trades, dict)
+        self.assertTrue(isinstance(self.trades, list))
 
     def test_public_orderbook(self):
         self.assertTrue(self.orderbook)
-        self.assertTrue(self.orderbook, dict)
+        self.assertTrue(isinstance(self.orderbook, dict))
